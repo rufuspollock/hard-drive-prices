@@ -1,0 +1,5 @@
+[DEFAULT]
+id: hard_drives
+title: Hard Drive Capacities and Costs (1955-2000)
+source: <http://www.littletechshoppe.com/ns1625/winchest.html>
+
