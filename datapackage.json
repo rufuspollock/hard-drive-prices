@@ -1,0 +1,72 @@
+{
+  "name": "hard-drive-prices",
+  "title": "Hard Drive Prices (1950-Present)",
+  "licenses": [
+    {
+      "id": "odc-pddl",
+      "name": "Public Domain Dedication and License",
+      "version": "1.0",
+      "url": "http://opendatacommons.org/licenses/pddl/1.0/"
+    }
+  ],
+  "sources": [{
+    "web": "http://www.littletechshoppe.com/ns1625/winchest.html",
+    "name": "Little Tech Shoppe website"
+  }],
+  "resources": [
+    {
+      "path": "data.csv",
+      "schema": {
+        "fields": [
+          {
+            "id": "Date",
+            "description": "Date of this price observation. Note many original dates just provided year and month or even just year. In this case they are are normalized to yyyy-mm-01 or yyyy-01-01",
+            "type": "date"
+          },
+          {
+            "id": "Normalized Cost",
+            "description": "Normalized cost in form of USD ($) per GB (obtained by dividing cost by capacity).",
+            "type": "float"
+          },
+          {
+            "id": "Manufacturer",
+            "description": "Hard drive manufacturer",
+            "type": "string"
+          },
+          {
+            "id": "Capacity (GB)",
+            "description": "Capacity of hard drive in Gigabytes (GB)",
+            "type": "float"
+          },
+          {
+            "id": "Price",
+            "currency": "USD",
+            "type": "float"
+          },
+          {
+            "id": "Warranty",
+            "description": "Warranty (if known) in years",
+            "type": "string"
+          },
+          {
+            "id": "Source",
+            "description": "Notes refer to those in the original webpage. A cached copy can be found at on the wayback machine",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "views": [
+    {
+      "id": "graph",
+      "label": "Graph",
+      "type": "Graph",
+      "state": {
+        "group": "Date",
+        "graphType": "points",
+        "series": [ "Normalized Cost" ]
+      }
+    }
+  ]
+}
