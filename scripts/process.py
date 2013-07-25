@@ -45,9 +45,6 @@ def get_tables():
         elif len(row) < 5:
             continue
         elif 'Source' in row[0]: # remove header from data
-            # deal with switch to cost per GB
-            if 'gigabyte' in row[5]:
-                pergig = True
             continue
         else:
             newrow = cleanrow(row)
@@ -90,10 +87,18 @@ def cleanrow(row):
         # some cases he does not have actual price just normed cost due to
         # complex calcs
         costpergig = float(row[5].replace('U$', '').replace('$', ''))
-        # cost per mb not per gb
+        if not '$' in row[5]: # it's in cents!
+            costpergig = costpergig / 100.0
+        # cost is per mb not per gb for these ones
         if price not in ['Note 77', 'Note 85', 'Note 86', 'Note 87']:
             costpergig = costpergig * 1000.0
         price = capacity * costpergig
+    if costpergig > 1:
+        costpergig = round(costpergig, 2)
+    elif costpergig > 0.01:
+        costpergig = round(costpergig, 4)
+    else:
+        costpergig = round(costpergig, 5)
     manufacturer = manufacturer.replace('\n', ' ')
     newrow = [ costpergig, manufacturer, capacity, price, warranty, source ]
     return newrow
