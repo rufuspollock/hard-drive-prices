@@ -1,4 +1,6 @@
-Long term price series for hard disk drives ("Winchester" style models).
+Hard disk drives (HDD) prices over time (1950-present). This dataset provides a
+time series of retail prices for "Winchester"-style hard disk drives sourced
+from various publications and sources.
 
 ## Data
 
