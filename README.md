@@ -8,7 +8,7 @@ Data in `data.csv` and metadata in `datapackage.json`.
 
 The primary data source was this [great webpage][winchest] (now
 sadly offline but available on the Internet Archive). We have a cached copy
-(from archive.org) in <archive/winchest-20111107.html>.
+(from archive.org) in `archive/winchest-20111107.html`.
 
 [winchest]: http://www.littletechshoppe.com/ns1625/winchest.html
 
